@@ -16,7 +16,7 @@ function populateTable(data) {
   var totalAmount = 0;
 
   data.forEach(function (item) {
-    var imageHtml = `<td><a href="/server/rasmlar/${item.image}"><img src="/server/rasmlar/${item.image}" alt="Image"></a></td>`;
+    var imageHtml = `<td><a href="http://localhost:3000/server/rasmlar/${item.image}"><img src="http://localhost:3000/server/rasmlar/${item.image}" alt="Image"></a></td>`;
     var rowHtml = `<tr>
       <td>${item.name}</td>
       <td>${item.email}</td>
@@ -56,7 +56,7 @@ function filterTable() {
 }
 
 // Fetch JSON data and populate the table
-fetch("/server/data.json")
+fetch("http://localhost:3000/server/data.json")
   .then(function (response) {
     return response.json();
   })
