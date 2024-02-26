@@ -56,17 +56,19 @@ function filterTable() {
 }
 
 // Fetch JSON data and populate the table
-fetch("http://webmas.uz/data.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
+async function fetchData() {
+  try {
+    const response = await fetch("https://webmas.uz/data.json");
+    const data = await response.json();
     originalData = data;
     populateTable(originalData);
-  })
-  .catch(function (error) {
+  } catch (error) {
     console.error(error);
-  });
+  }
+}
+
+fetchData();
+
 
 // Add event listener to the filter button
 var filterButton = document.querySelector("#filter-button");
